@@ -37,6 +37,7 @@
                                     echo '<p class="card-text">'.$row['description'].' </p>';
                                     echo '<a href="adoptMe.php?id='.$row['id'].'" class="btn btn-primary">Adopt me</a>';
                                     echo '<a href="editPet.php?id='.$row['id'].'" class="btn btn-success">Edit</a>';
+                                    echo '<a href="deletePet.php?id='.$row['id'].'" class="btn btn-danger">Delete</a>';
                                
                                     echo '</div>';
                             echo '</div>';
