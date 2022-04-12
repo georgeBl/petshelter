@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> ab41450f190f1c264464dae4a1b4587dfd2ef74e
 <?php 
     include "connection.php";
 
@@ -20,6 +25,10 @@
     <title>Pet shelter</title>
   </head>
   <body>
+<<<<<<< HEAD
+=======
+      <?php include 'navbar.php' ?>
+>>>>>>> ab41450f190f1c264464dae4a1b4587dfd2ef74e
     <div class="container">
         <div class="row">
 
@@ -32,8 +41,16 @@
                                 echo '<div class="card-body">';
                                     echo '<h5 class="card-title">'.$row['name'].'</h5>';
                                     echo '<p class="card-text">'.$row['description'].' </p>';
+<<<<<<< HEAD
                                     echo '<a href="/adoptMe.php?id='.$row['id'].'" class="btn btn-primary">Adopt me</a>';
                                 echo '</div>';
+=======
+                                    echo '<a href="adoptMe.php?id='.$row['id'].'" class="btn btn-primary">Adopt me</a>';
+                                    echo '<a href="editPet.php?id='.$row['id'].'" class="btn btn-success">Edit</a>';
+                                    echo '<a href="deletePet.php?id='.$row['id'].'" class="btn btn-danger">Delete</a>';
+                               
+                                    echo '</div>';
+>>>>>>> ab41450f190f1c264464dae4a1b4587dfd2ef74e
                             echo '</div>';
                         echo '</div>';
                     }
@@ -48,4 +65,10 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   </body>
+<<<<<<< HEAD
 </html>
+=======
+</html>
+
+
+>>>>>>> ab41450f190f1c264464dae4a1b4587dfd2ef74e
