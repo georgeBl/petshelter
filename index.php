@@ -29,6 +29,7 @@
             <?php
                 if($result->num_rows>0){
                     while($row = $result->fetch_assoc()){
+                        // make sure you don't render the pet that is adopted.
                         echo '<div class="col-3">';
                             echo '<div class="card" style="width: 18rem;">';
                             //an example of conditional rendering depending on a variable (if you have access to it or not)

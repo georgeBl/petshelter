@@ -25,7 +25,9 @@
     }
     //if the pet is adopted, you should also send the user to the home page.
     //insert code here!!!!
-
+    if( $pet['adopted'] == true){
+        header("Location: index.php");
+    }
 
 
     
@@ -43,6 +45,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="handleAdopt.js"></script>
     <title>Pet shelter</title>
   </head>
   <body>
@@ -54,31 +57,39 @@
                 <!-- we will check this form using jQuery -->
                 <!-- jQuery is a JavaScript library for browsers that helps with handeling and manipulating HTML tags using significantly less code-->
                 <!-- see details on their doc page:  https://api.jquery.com/ -->
+                <!-- id has to be unique and can not be shared accross the page -->
                 <form method="post" action="handleadoptpet.php" >
                     <div class="mb-3">
                         <label for="forName" class="form-label">Full Name <span class="text-danger">*</span></label>
                         <input type="text" class="form-control" id="fullname"  name="fullname" aria-describedby="nameInput">
+                        <span id="fullnameError" class="text-danger"></span>
                     </div>
+                    
                     <!-- instead of this, you could also use a address finder input - there are examples online -->
                     <div class="mb-3">
                         <label for="forName" class="form-label">Address Line 1 <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id=""  name="address1" aria-describedby="nameInput">
+                        <input type="text" class="form-control" id="address1"  name="address1" aria-describedby="nameInput">
+                        <span id="address1Error" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
                         <label for="forName" class="form-label">Address Line 2</label>
-                        <input type="text" class="form-control" id=""  name="address2" aria-describedby="nameInput">
+                        <input type="text" class="form-control" id="address2"  name="address2" aria-describedby="nameInput">
+                        <span id="address2Error" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
                         <label for="forName" class="form-label">City <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id=""  name="city" aria-describedby="nameInput">
+                        <input type="text" class="form-control" id="city"  name="city" aria-describedby="nameInput">
+                        <span id="cityError" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
                         <label for="forName" class="form-label">Eircode</label>
-                        <input type="text" class="form-control" id=""  name="eircode" aria-describedby="nameInput">
+                        <input type="text" class="form-control" id="eircode"  name="eircode" aria-describedby="nameInput">
+                        <span id="eircodeError" class="text-danger"></span>
                     </div>
                     <div class="mb-3">
                         <label for="forName" class="form-label">Date of birth <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id=""  name="dob" aria-describedby="nameInput">
+                        <input type="text" class="form-control" id="dob"  name="dob" aria-describedby="nameInput">
+                        <span id="dobError" class="text-danger"></span>
                     </div>
                     
                     <button type="submit" class="btn btn-primary">Request addoption</button>
