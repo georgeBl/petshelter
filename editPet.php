@@ -3,8 +3,11 @@
 <?php 
     include "connection.php";
 
-    $sql = "SELECT * FROM pet WHERE id=".$_GET['id'];
-
+    if(isset($_GET['id']) || ! empty($_GET['id']) ){
+        $id = $_GET['id'];
+    }
+   
+    $sql = "SELECT * FROM pet WHERE id=".$id;
     $result = $conn->query($sql);
     $pet = $result->fetch_assoc();
     // echo '<pre>';
@@ -30,6 +33,7 @@
     <div class="container">
         <h3>Edit Pet</h3>
         <form method="post" action="handleeditpet.php" enctype="multipart/form-data">
+            <input type="hidden" value="<?=$id?>" name="id">
             <div class="mb-3">
                 <label for="forName" class="form-label">Pet Name</label>
                 <input  type="text" 
@@ -39,6 +43,7 @@
                         aria-describedby="nameInput" 
                         value="<?= $pet['name'] ?>"
                         >
+                <span class="text-danger"><?= (isset($error['name']))? $error['name'] : '' ?></span>
             </div>
             <div class="mb-3">
                 <label for="forType" class="form-label">Pet Type</label>
@@ -50,6 +55,7 @@
                     <option <?= ($pet['type'] === 'snake')? 'selected' : NULL ?> value="snake">Snake</option>
                     <option <?= ($pet['type'] === 'fish')? 'selected' : NULL ?> value="fish">Fish</option>
                 </select>
+                <span class="text-danger"><?= (isset($error['type']))? $error['type'] : '' ?></span>
             </div>
             <div class="mb-3">
                 <label for="forRace" class="form-label">Pet Race</label>
@@ -60,16 +66,26 @@
                         value="<?= $pet['race'] ?>"
                         aria-describedby="raceInput"
                  >
+                 <span class="text-danger"><?= (isset($error['race']))? $error['race'] : '' ?></span>
             </div>
             <div class="form-floating">
                 <textarea class="form-control" placeholder="Leave description here" name="description" id="" style="height: 100px"><?= $pet['description']?></textarea>
                 <label for="forDescription">Description</label>
+                <span class="text-danger"><?= (isset($error['description']))? $error['description'] : '' ?></span>
             </div>
             <div class="mb-3">
                 <label for="forAge" class="form-label">Pet Age</label>
                 <input type="number" value="<?= $pet['age'] ?>" class="form-control" id=""  name="age" aria-describedby="ageInput">
+                <span class="text-danger"><?= (isset($error['age']))? $error['age'] : '' ?></span>
             </div>
-            
+            <div class="mb-3">
+                <label for="forAdopted" class="form-label">Pet Adopted?</label>
+                <select class="form-select"  name="adopted" aria-label="Default select example">
+                    <option <?= ($pet['adopted'] === true)? 'selected' : NULL ?> value="1">Adopted</option>
+                    <option <?= ($pet['adopted'] === false)? 'selected' : NULL ?> value="0">Not Adopted</option>
+                </select>
+                <span class="text-danger"><?= (isset($error['adopted']))? $error['adopted'] : '' ?></span>
+            </div>            
             <button type="submit" class="btn btn-primary">Submit pet</button>
         </form>
     </div>
