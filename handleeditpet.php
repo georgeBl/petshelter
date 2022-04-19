@@ -40,8 +40,8 @@ if(empty($error)){
     $sql = " UPDATE pet 
         SET name=?, description =?, age=?, type=?, race=?, adopted=? 
         WHERE id=?";
-
     $stmt= $conn->prepare($sql);
+   
     $stmt->bind_param("ssissbi", $name, $description, $age, $type, $race, $adopted, $id);
     
     $stmt->execute();

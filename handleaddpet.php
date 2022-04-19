@@ -82,7 +82,7 @@ if(empty($error)){
 
     $stmt= $conn->prepare($sql);
 
-    $stmt->bind_param("sssisbs",  $name,$type,$race, $age, $description, $adopted, $target_file);
+    $stmt->bind_param("sssisbs",  $name, $type, $race, $age, $description, $adopted, $target_file);
 
     $stmt->execute();
     $conn->close();

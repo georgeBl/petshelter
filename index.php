@@ -18,7 +18,17 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script>
+        // to insert a pop-up if you want to delete 
+        const askDeleted = (id) => {
+            console.log(`You will delete pet with id: ${id}`);
+            if(confirm("Are you sure you want to delete?")){
+                window.location.href = "deletePet.php?id=" + id;
+            }
+        }
+        
 
+    </script>
     <title>Pet shelter</title>
   </head>
   <body>
@@ -45,7 +55,7 @@
                                     echo '<p class="card-text">'.$row['description'].' </p>';
                                     echo '<a href="adoptMe.php?id='.$row['id'].'" class="btn btn-primary">Adopt me</a>';
                                     echo '<a href="editPet.php?id='.$row['id'].'" class="btn btn-success">Edit</a>';
-                                    echo '<a href="deletePet.php?id='.$row['id'].'" class="btn btn-danger">Delete</a>';
+                                    echo '<button href="" class="btn btn-danger" onclick="askDeleted('.$row['id'].')" >Delete</button>';
                                
                                     echo '</div>';
                             echo '</div>';

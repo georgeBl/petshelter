@@ -92,7 +92,7 @@
                         <span id="dobError" class="text-danger"></span>
                     </div>
                     
-                    <button type="submit" class="btn btn-primary">Request addoption</button>
+                    <button type="submit" class="btn btn-primary">Request adoption</button>
                 </form>
            </div>
            <div class="col-6">
